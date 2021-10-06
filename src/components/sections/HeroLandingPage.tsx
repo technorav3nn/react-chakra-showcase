@@ -7,7 +7,7 @@ import {
   Image,
   Heading,
   Stack,
-  Text
+  Text,
 } from "@chakra-ui/react";
 
 export default function Hero({
@@ -17,22 +17,24 @@ export default function Hero({
   ctaLink,
   ctaText,
   ...rest
-}) {
+}: Partial<{
+  title: string;
+  subtitle: string;
+  image: string;
+  ctaLink: string;
+  ctaText: string;
+}>) {
   return (
     <Flex
       align="center"
       justify={{ base: "center", md: "space-around", xl: "space-between" }}
       direction={{ base: "column-reverse", md: "row" }}
-      wrap="no-wrap"
+      wrap="nowrap"
       minH="70vh"
       px={8}
       mb={16}
       {...rest}
     >
-      <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
-        {/* TODO: Make this change every X secs */}
-        <Image src={image} size="100%" rounded="1rem" shadow="2xl" />
-      </Box>
       <Stack
         spacing={4}
         w={{ base: "80%", md: "40%" }}
@@ -81,6 +83,14 @@ export default function Hero({
           No credit card required.
         </Text>
       </Stack>
+      <Box
+        w={{ base: "80%", sm: "60%", md: "50%" }}
+        align={["center", "center", "flex-start", "flex-start"]}
+        mb={{ base: 12, md: 0 }}
+      >
+        {/* TODO: Make this change every X secs */}
+        <Image src={image} size="100%" rounded="1rem" shadow="2xl" />
+      </Box>
     </Flex>
   );
 }
@@ -90,7 +100,7 @@ Hero.propTypes = {
   subtitle: PropTypes.string,
   image: PropTypes.string,
   ctaText: PropTypes.string,
-  ctaLink: PropTypes.string
+  ctaLink: PropTypes.string,
 };
 
 Hero.defaultProps = {
@@ -99,5 +109,5 @@ Hero.defaultProps = {
     "This is the subheader section where you describe the basic benefits of your product",
   image: "https://source.unsplash.com/collection/404339/800x600",
   ctaText: "Create your account now",
-  ctaLink: "/signup"
+  ctaLink: "/signup",
 };

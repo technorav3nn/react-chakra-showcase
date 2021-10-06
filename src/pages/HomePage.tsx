@@ -1,20 +1,7 @@
 import * as React from "react";
-import {
-  ChakraProvider,
-  Box,
-  theme,
-  Fade,
-  chakra,
-  Text
-} from "@chakra-ui/react";
-import Navbar from ".././components/Navbar";
-import {
-  ThemeEditorProvider,
-  HyperThemeEditor
-} from "@hypertheme-editor/chakra-ui";
-import HeroRight from ".././components/HeroRight";
-import HeroLeft from ".././components/HeroLeft";
-import Heros from ".././components/Heros";
+import { Box, Fade } from "@chakra-ui/react";
+import HeroLandingPage from "../components/sections/HeroLandingPage";
+import MainInviteSection from "../components/sections/MainInviteSection";
 import VizSensor from "react-visibility-sensor"; // or use any other 3rd party plugin or define your own
 import Feature from "../components/features/Feature";
 
@@ -25,7 +12,7 @@ export default function HomePage() {
   return (
     <>
       <Box textAlign="center" minH="50vh" fontSize="xl" p={4}>
-        <Heros />
+        <MainInviteSection />
         <VizSensor
           onChange={(isVisible) => {
             if (active) return;
@@ -35,7 +22,7 @@ export default function HomePage() {
           offset={{ bottom: -250 }}
         >
           <Fade in={active} unmountOnExit={false}>
-            <HeroRight
+            <HeroLandingPage
               title="The most advanced music bot, ever."
               subtitle="Level up your server, for free, and listen to your favorite music at the same time."
             />

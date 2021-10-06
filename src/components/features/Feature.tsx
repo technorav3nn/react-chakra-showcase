@@ -5,7 +5,7 @@ import {
   useColorModeValue,
   SimpleGrid,
   Flex,
-  Icon
+  Icon,
 } from "@chakra-ui/react";
 import { FaEdit, FaSun, FaMobileAlt } from "react-icons/fa";
 
@@ -56,7 +56,7 @@ const Features = () => {
               fontSize={{
                 base: "2rem",
                 sm: "3rem",
-                lg: "4rem"
+                lg: "4rem",
               }}
               fontFamily="heading"
               letterSpacing="tight"
@@ -77,7 +77,7 @@ const Features = () => {
             </chakra.p>{" "}
           </Box>
           <SimpleGrid
-            columns={{ base: 1, sm: 2, md: 3 }}
+            columns={{ base: 1, sm: 1, md: 2, lg: 3 }}
             spacingX={{ base: 16, lg: 10 }}
             spacingY={20}
             mt={12}

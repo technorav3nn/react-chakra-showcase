@@ -3,12 +3,12 @@ import { ChakraProvider, theme } from "@chakra-ui/react";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
-import TestPage from "./pages/TestPage";
-import Navbar from "./components/Navbar";
+import TestPage from "./pages/MenuPage";
+import Navbar from "./components/ui/Navbar";
 
 import {
   ThemeEditorProvider,
-  HyperThemeEditor
+  HyperThemeEditor,
 } from "@hypertheme-editor/chakra-ui";
 
 export const App = () => {
@@ -23,7 +23,7 @@ export const App = () => {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/test">
+          <Route path="/menu">
             <TestPage />
           </Route>
         </Switch>

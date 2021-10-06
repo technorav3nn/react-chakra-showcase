@@ -13,20 +13,22 @@ import {
   PopoverContent,
   useColorModeValue,
   useBreakpointValue,
-  useDisclosure
+  useDisclosure,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon
+  ChevronRightIcon,
 } from "@chakra-ui/icons";
 import React from "react";
 
-import { ColorModeSwitcher } from "../ColorModeSwitcher";
+import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
+  const loginFunc = () =>
+    (window.location.href = "http://localhost:4000/login");
 
   return (
     <Box>
@@ -36,7 +38,6 @@ export default function WithSubnavigation() {
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
@@ -60,7 +61,7 @@ export default function WithSubnavigation() {
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
-            fontWeight={"extrabold"}
+            fontWeight={"bold"}
             color={useColorModeValue("gray.800", "white")}
           >
             Floppa Tunes{" "}
@@ -79,12 +80,13 @@ export default function WithSubnavigation() {
           <Button
             as={"a"}
             fontSize={"sm"}
-            fontWeight={"extrabold"}
+            fontWeight={"bold"}
+            //@ts-ignore
             colorVariant={"grey"}
             size={"md"}
-            href={"#"}
+            onClick={loginFunc}
           >
-            Login{" "}
+            Login
           </Button>
           <ColorModeSwitcher />
         </Stack>
@@ -118,7 +120,7 @@ const DesktopNav = () => {
                 color={linkColor}
                 _hover={{
                   textDecoration: "none",
-                  color: linkHoverColor
+                  color: linkHoverColor,
                 }}
               >
                 {navItem.label}
@@ -211,7 +213,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         justify={"space-between"}
         align={"center"}
         _hover={{
-          textDecoration: "none"
+          textDecoration: "none",
         }}
       >
         <Text
@@ -266,14 +268,14 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: "View queues",
         subLabel: "Queues / Players of servers you're in",
-        href: "#"
+        href: "#",
       },
       {
         label: "View invitable servers",
         subLabel: "Easily invite the bot in one of your servers",
-        href: "#"
-      }
-    ]
+        href: "#",
+      },
+    ],
   },
   {
     label: "Info",
@@ -281,13 +283,13 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: "Privacy",
         subLabel: "Privacy rules and what data we have",
-        href: "#"
+        href: "#",
       },
       {
         label: "Terms of Service / Rules",
         subLabel: "A document of rules / terms to follow while using this bot",
-        href: "#"
-      }
-    ]
-  }
+        href: "#",
+      },
+    ],
+  },
 ];
