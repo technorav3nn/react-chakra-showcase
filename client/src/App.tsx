@@ -1,6 +1,11 @@
 import * as React from "react";
 import { ChakraProvider, theme } from "@chakra-ui/react";
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import {
+  Switch,
+  BrowserRouter as Router,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import TestPage from "./pages/MenuPage";

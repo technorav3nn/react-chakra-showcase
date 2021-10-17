@@ -2,7 +2,7 @@ import * as React from "react";
 import { Box, Fade } from "@chakra-ui/react";
 import HeroLandingPage from "../components/sections/HeroLandingPage";
 import MainInviteSection from "../components/sections/MainInviteSection";
-import VizSensor from "react-visibility-sensor"; // or use any other 3rd party plugin or define your own
+import VizSensor from "react-visibility-sensor";
 import Feature from "../components/features/Feature";
 
 import { useState } from "react";

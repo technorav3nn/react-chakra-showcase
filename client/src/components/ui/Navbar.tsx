@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  useColorMode,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -24,11 +25,13 @@ import {
 import React from "react";
 
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
+import Tooltip from "@material-ui/core/Tooltip";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const loginFunc = () =>
     (window.location.href = "http://localhost:4000/login");
+  const { colorMode } = useColorMode();
 
   return (
     <Box>
@@ -77,17 +80,20 @@ export default function WithSubnavigation() {
           direction={"row"}
           spacing={2}
         >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={"bold"}
-            //@ts-ignore
-            colorVariant={"grey"}
-            size={"md"}
-            onClick={loginFunc}
-          >
-            Login
-          </Button>
+          <Tooltip title="Login with Discord">
+            <Button
+              as={"a"}
+              fontSize={"sm"}
+              fontWeight={"bold"}
+              //@ts-ignore
+              colorVariant={"grey"}
+              size={"md"}
+              onClick={loginFunc}
+              style={{ cursor: "pointer" }}
+            >
+              Login
+            </Button>
+          </Tooltip>
           <ColorModeSwitcher />
         </Stack>
       </Flex>
